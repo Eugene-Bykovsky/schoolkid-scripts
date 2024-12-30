@@ -33,8 +33,9 @@ def fix_marks(schoolkid_name):
 
     schoolkid_bad_points = Mark.objects.filter(schoolkid=schoolkid,
                                                points__in=[2, 3])
+    bad_points_count = schoolkid_bad_points.count()
     schoolkid_bad_points.update(points=5)
-    print(f"Исправлено оценок: {schoolkid_bad_points.count()}")
+    print(f"Исправлено оценок: {bad_points_count}")
 
 
 def remove_chastisements(schoolkid_name):
